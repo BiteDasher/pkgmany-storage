@@ -1,0 +1,18 @@
+debname=wifiman
+debver=1.8.5
+debrel=1
+year=2020
+maintainer="Artemii Sudakov <finziyr@yandex.ru>"
+debdesc="Minimalistic wpa_supplicant configuration manager"
+debarch="amd64"
+url='https://github.com/BiteDasher/wifiman'
+license="MIT"
+debdeps="bash, sed, wireless-tools, wpasupplicant, systemd, isc-dhcp-client"
+debrec="zenity, dhcpcd, wifiman-indicator"
+debprv=('wifigui')
+sources=("wget:${debname}-${debver}.tar.gz:https://github.com/BiteDasher/wifiman/archive/${debver}.tar.gz")
+sha256sums=('731a055cf00e0f02bdbd737fbb2f996b3b7e3efb44c42dd55739f9ab8640deb3')
+package() {
+cd $srcdir/$debname-$debver
+make PREFIX="$pkgdir/usr" install
+}
