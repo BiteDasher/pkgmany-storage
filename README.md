@@ -1,2 +1,4 @@
 # pkgmany-storage
-Storage of DEBBUILD's for pkgmany
+Repository with DEBBUILD's for pkgmany
+
+> Select "storage" branch
