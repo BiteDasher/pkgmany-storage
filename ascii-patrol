@@ -9,7 +9,7 @@ url='http://ascii-patrol.com/'
 license="GPL"
 debdeps="pulseaudio"
 maintainer="Artemii Sudakov <finziyr@yandex.ru>"
-sources=('http://ascii-patrol.com/area51/ascii-patrol-debian-x64.tgz')
+sources=('wget:ascii-patrol-debian-amd64.tgz:http://ascii-patrol.com/area51/ascii-patrol-debian-x64.tgz')
 sha256sums=('7545453b00107b05e2102f4ba035f32b9174685358b5e1d2c4689288db7b1b60')
 package() {
   install -m755 -D ${srcdir}/asciipat/asciipat $pkgdir/usr/bin/$debname
