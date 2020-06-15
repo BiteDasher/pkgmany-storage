@@ -18,10 +18,10 @@ sha256sums=("f47d9b6b3783ac7e40e3bea531fe78cae0078f75922a826b25fc4cf98bf40f49"
             "SKIP")
 unpack() {
 tar -xf "$srcdir/${debname}-${debver}.tar.gz" -C $srcdir/
-mv $srcdir/$_subname/Makefile $srcdir/$_subname/vindicator.vala $srcdir/$pkgname-$pkgver/$_subname
+mv $srcdir/$_subname/Makefile $srcdir/$_subname/vindicator.vala $srcdir/$debname-$debver/$_subname
 }
 package() {
-cd $srcdir/$pkgname-$pkgver
+cd $srcdir/$debname-$debver
 make all
 make PREFIX="$pkgdir/usr" PK_DEST="$pkgdir/usr/share/polkit-1/actions" PK_EXEC_DEST="\/usr\/bin" XDG_DEST="$pkgdir/etc/xdg/autostart" install
 }
