@@ -1,0 +1,6 @@
+debpkg=1
+debname=google-chrome-stable
+#debver="$(curl -s https://dl.google.com/linux/chrome/rpm/stable/x86_64/repodata/other.xml.gz | gzip -df | grep -E ver | sed '3!d' | cut -d"\"" -f4)"
+debver=83.0.4103.97
+sources=("wget:google-chrome-stable_${debver}-1_amd64.deb:https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${debver}-1_amd64.deb")
+sha256sums=('b32490fdb38db0ab0c35b07daab8bc1bfc27586dc3afb535e5f4e81e9f3f7f27')
