@@ -1,10 +1,11 @@
 debname=wifiman-indicator
 _subname=vindicator
 debver=1.4.3
-debrel=2
+debrel=3
 debdesc="LibIndicator support for WifiMan. Written in Vala"
 debarch="amd64"
 maintainer="Artemii Sudakov <finziyr@yandex.ru>"
+author="$maintainer"
 year=2020
 url='https://github.com/BiteDasher/wifiman-indicator'
 license="MIT"

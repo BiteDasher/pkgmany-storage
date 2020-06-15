@@ -1,8 +1,9 @@
 debname=wifiman
 debver=1.8.5
-debrel=1
+debrel=2
 year=2020
 maintainer="Artemii Sudakov <finziyr@yandex.ru>"
+author="$maintainer"
 debdesc="Minimalistic wpa_supplicant configuration manager"
 debarch="amd64"
 url='https://github.com/BiteDasher/wifiman'
