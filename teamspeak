@@ -1,0 +1,52 @@
+debname=teamspeak
+debver=3.5.3
+debrel=1
+year=2020
+maintainer="Artemii Sudakov <finziyr@yandex.ru>"
+author="TeamSpeak Systems, Inc."
+debdesc="Minimalistic wpa_supplicant configuration manager"
+debarch="amd64"
+url='https://www.teamspeak.com/en/downloads/'
+license="custom"
+debdeps="libxss1, libxslt1.1"
+debrec="pulseaudio"
+debprv="teamspeak3"
+makedepends=('findutils')
+sources=("wget:TeamSpeak3-Client-linux_amd64-$debver.run:https://files.teamspeak-services.com/releases/client/$debver/TeamSpeak3-Client-linux_amd64-$debver.run"
+	 "wget:teamspeak3.png:https://lh3.googleusercontent.com/jUgoP67po1y3aQ5iBlBpZkrRrizUNRYAYxonQjrfiHp115V8GlAUdv642Z6qBcOpg9k")
+sha256sums=('ca9cdb5409042c86f2981dd32e046b7f8de4aab6a8333edc7e1fb83eb3d8e93a'
+	    '527d276a7d5b7c391a04c61a94036d49aaf8becc715a463126f095e9f233bee8')
+unpack() {
+  cd $srcdir
+  mkdir archive && cd archive
+  sh "${srcdir}"/TeamSpeak3-Client-linux_amd64-${debver}.run --tar -xf 2>/dev/null
+  cat <<EOF > $srcdir/teamspeak3.desktop
+[Desktop Entry]
+Encoding=UTF-8
+Name=TeamSpeak 3
+GenericName=TeamSpeak
+Comment=TeamSpeak is software for quality voice communication via the Internet
+Exec=teamspeak3 %u
+MimeType=x-scheme-handler/ts3server;
+Icon=teamspeak3.xpm
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=Network;Application
+StartupWMClass=TeamSpeak 3
+EOF
+}
+package() {
+  cd $srcdir/archive
+  find -type d | xargs chmod 755
+  find -type f | xargs chmod 644
+  find -name '*.so*' | xargs chmod 755
+  chmod +x ts3client* package_inst QtWebEngineProcess
+  install -d "${pkgdir}"/{usr/bin/,opt/teamspeak3}
+  cp -r ${srcdir}/archive/* ${pkgdir}/opt/teamspeak3/
+  install -D -m644 "${srcdir}"/teamspeak3.desktop "${pkgdir}"/usr/share/applications/teamspeak3.desktop
+  install -D -m644 "${srcdir}"/teamspeak3.png "${pkgdir}"/usr/share/pixmaps/teamspeak3.png
+  ln -s /opt/teamspeak3/ts3client_runscript.sh "${pkgdir}"/usr/bin/teamspeak3
+  sed -i "s|cd.*|cd /opt/teamspeak3|" "${pkgdir}"/opt/teamspeak3/ts3client_runscript.sh
+  sed -i "s|ts3client_linux_amd64|ts3client_linux_amd64 -platform xcb|" "${pkgdir}"/opt/teamspeak3/ts3client_runscript.sh
+}
