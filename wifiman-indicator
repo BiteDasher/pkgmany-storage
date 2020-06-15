@@ -1,7 +1,7 @@
 debname=wifiman-indicator
 _subname=vindicator
 debver=1.4.3
-debrel=1
+debrel=2
 debdesc="LibIndicator support for WifiMan. Written in Vala"
 debarch="amd64"
 maintainer="Artemii Sudakov <finziyr@yandex.ru>"
@@ -21,6 +21,7 @@ tar -xf "$srcdir/${debname}-${debver}.tar.gz" -C $srcdir/
 mv $srcdir/$_subname/Makefile $srcdir/$_subname/vindicator.vala $srcdir/$debname-$debver/$_subname
 }
 package() {
+cd $srcdir/$debname-$debver/$_subname && make all
 cd $srcdir/$debname-$debver
 make all
 make PREFIX="$pkgdir/usr" PK_DEST="$pkgdir/usr/share/polkit-1/actions" PK_EXEC_DEST="\/usr\/bin" XDG_DEST="$pkgdir/etc/xdg/autostart" install
