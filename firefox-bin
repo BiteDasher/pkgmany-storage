@@ -14,6 +14,8 @@ debdepends="dbus-glib, lsb-release, libatk1.0-0 (>= 1.12.4), libc6 (>= 2.30), li
 debrec="ffmpeg, network-manager, pulseaudio, upower"
 debprv="firefox-$debver"
 debcon="firefox"
+debsec="web"
+debpri="optional"
 sources=("wget:firefox.tar.bz2:https://ftp.mozilla.org/pub/firefox/releases/$debver/linux-x86_64/en-US/firefox-$debver.tar.bz2")
 sha256sums=('03859fd56f79cb520e30bae2433b6f61f806c8f95e7576092894eb1d644e6ff1')
 unpack() {
