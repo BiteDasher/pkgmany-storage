@@ -1,3 +1,4 @@
+# Based on https://git.archlinux.org/svntogit/community.git/tree/trunk/PKGBUILD?h=packages/teamspeak3
 debname=teamspeak
 debver=3.5.3
 debrel=1
