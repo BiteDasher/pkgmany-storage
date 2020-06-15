@@ -9,6 +9,7 @@ year=2020
 url='https://github.com/BiteDasher/wifiman-indicator'
 license="MIT"
 debdeps="wifiman, zenity, policykit-1, xdg-user-dirs"
+manydeps=('wifiman')
 makedepends=('valac' 'libappindicator-dev' 'binutils')
 debrec="isc-dhcp-client"
 sources=("wget:${debname}-${debver}.tar.gz:https://github.com/BiteDasher/wifiman-indicator/archive/${debver}.tar.gz"	
