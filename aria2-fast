@@ -84,7 +84,7 @@ package() {
   ./configure \
     --prefix=/usr \
     --with-ca-bundle=/etc/ssl/certs/ca-certificates.crt
-  make
+  make -j$(($(nproc) + 1))
   make DESTDIR=${pkgdir} install
   # add bash completion (aria2 automatically installs to a temporary target directory)
   install -d ${pkgdir}/usr/share/bash-completion/completions

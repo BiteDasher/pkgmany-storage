@@ -25,6 +25,6 @@ mv $srcdir/$_subname/Makefile $srcdir/$_subname/vindicator.vala $srcdir/$debname
 package() {
 cd $srcdir/$debname-$debver/$_subname && make all
 cd $srcdir/$debname-$debver
-make all
+make all -j$(($(nproc) + 1))
 make PREFIX="$pkgdir/usr" PK_DEST="$pkgdir/usr/share/polkit-1/actions" PK_EXEC_DEST="\/usr\/bin" XDG_DEST="$pkgdir/etc/xdg/autostart" install
 }
