@@ -26,7 +26,6 @@ cat <<EOF > $srcdir/${_debname}/${_debname}.sh
 #!/bin/sh
 exec /opt/firefox-bin/firefox --class "Firefox" --name "Firefox" "$@"
 EOF
-  install -m755 $_debname.sh "$pkgdir"/usr/bin/$_debname
 cat <<EOF > $srcdir/${_debname}/${_debname}.desktop
 [Desktop Entry]
 Version=1.0
@@ -345,6 +344,7 @@ package() {
   mkdir -p "$pkgdir"/usr/bin
   mkdir -p "$pkgdir"/usr/share/applications
   mkdir -p "$pkgdir"/opt
+  install -m755 $_debname.sh "$pkgdir"/usr/bin/$_debname
   cp -r $srcdir/$_debname/ "$pkgdir"/opt/$debname
   install -m644 *.desktop "$pkgdir"/usr/share/applications/
   for i in 16x16 32x32 48x48 64x64 128x128; do
