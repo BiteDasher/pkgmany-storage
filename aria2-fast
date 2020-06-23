@@ -79,7 +79,7 @@ cat <<EOF > $srcdir/aria2-fast.patch
 EOF
 }
 package() {
-  cd aria2-${debver}
+  cd $srcdir/aria2-${debver}
   patch -Np1 < ../aria2-fast.patch
   ./configure \
     --prefix=/usr \
