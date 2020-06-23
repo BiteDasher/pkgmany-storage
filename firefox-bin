@@ -21,18 +21,13 @@ sha256sums=('03859fd56f79cb520e30bae2433b6f61f806c8f95e7576092894eb1d644e6ff1')
 unpack() {
 tar -xf "$srcdir/firefox.tar.bz2" -C $srcdir/
 }
-package() {
-  cd $srcdir/$_debname
-  mkdir -p "$pkgdir"/usr/bin
-  mkdir -p "$pkgdir"/usr/share/applications
-  mkdir -p "$pkgdir"/opt
-  cp -r $srcdir/$_debname/ "$pkgdir"/opt/$debname
-cat <<EOF > ${_debname}.sh
+addfiles() {
+cat <<EOF > $srcdir/${_debname}/${_debname}.sh
 #!/bin/sh
 exec /opt/firefox-bin/firefox --class "Firefox" --name "Firefox" "$@"
 EOF
   install -m755 $_debname.sh "$pkgdir"/usr/bin/$_debname
-cat <<EOF > ${_debname}.desktop
+cat <<EOF > $srcdir/${_debname}/${_debname}.desktop
 [Desktop Entry]
 Version=1.0
 Name=Firefox
@@ -344,6 +339,13 @@ Name[zh_CN]=新建隐私浏览窗口
 Name[zh_TW]=新增隱私視窗
 Exec=firefox --private-window %u
 EOF
+}
+package() {
+  cd $srcdir/$_debname
+  mkdir -p "$pkgdir"/usr/bin
+  mkdir -p "$pkgdir"/usr/share/applications
+  mkdir -p "$pkgdir"/opt
+  cp -r $srcdir/$_debname/ "$pkgdir"/opt/$debname
   install -m644 *.desktop "$pkgdir"/usr/share/applications/
   for i in 16x16 32x32 48x48 64x64 128x128; do
     install -d "$pkgdir"/usr/share/icons/hicolor/$i/apps/
