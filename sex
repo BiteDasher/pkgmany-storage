@@ -9,7 +9,6 @@ debarch="all"
 makedepends=('gcc')
 sources=("wget:sex-${debver}.tar.gz:http://spatula.net/software/sex/sex-${debver}.tar.gz")
 sha256sums=('0f21831cd583ed917c2fc5f17bbe4e42f1d700417260b2e5924bf86b7f06eea8')
-
 package() {
   cd "${srcdir}/${debname}-${debver}"
   gcc -o sex sex.c
