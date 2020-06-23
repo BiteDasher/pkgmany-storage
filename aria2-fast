@@ -1,3 +1,4 @@
+# Based on https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=aria2-fast
 debname=aria2-fast
 debver=1.35.0
 debrel=1
@@ -12,7 +13,7 @@ debdeps="gnutls-bin, libxml2, sqlite, c-ares, ca-certificates, libssh2"
 debprv="aria2"
 debcon="aria2"
 makedepends=('make' 'patch')
-source=("wget:aria2-${debver}.tar.xz:https://github.com/aria2/aria2/releases/download/release-${debver}/aria2-${debver}.tar.xz")
+sources=("wget:aria2-${debver}.tar.xz:https://github.com/aria2/aria2/releases/download/release-${debver}/aria2-${debver}.tar.xz")
 sha256sums=("1e2b7fd08d6af228856e51c07173cfcf987528f1ac97e04c5af4a47642617dfd")
 unpack() {
 tar -xf "$srcdir/aria2-${debver}.tar.xz" -C $srcdir/
