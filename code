@@ -1,6 +1,5 @@
 debpkg=1
 debname=code
 debver=1.46.1
-
 sources=("wget:${debname}_${debver}-1592428892_amd64.deb:https://az764295.vo.msecnd.net/stable/cd9ea6488829f560dc949a8b2fb789f3cdc05f5d/${debname}_1.46.1-1592428892_amd64.deb")
 sha256sums=('8ad0dec20927d22efbffcbbd2d642e4f57cbeee4bd4deba8eae61d1c9362d8ea')
