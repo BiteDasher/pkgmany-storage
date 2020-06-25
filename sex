@@ -7,13 +7,13 @@ url="http://spatula.net/software/sex/"
 license="custom"
 debarch="all"
 makedepends=('gcc')
-sources=("wget:sex-${debver}.tar.gz:http://spatula.net/software/sex/sex-${debver}.tar.gz")
+sources=("wget:${debname}-${debver}.tar.gz:http://spatula.net/software/${debname}/${debname}-${debver}.tar.gz")
 sha256sums=('0f21831cd583ed917c2fc5f17bbe4e42f1d700417260b2e5924bf86b7f06eea8')
 package() {
   cd "${srcdir}/${debname}-${debver}"
-  gcc -o sex sex.c
-  gzip sex.6
-  install -Dm755 sex "${pkgdir}/usr/bin/sex"
-  install -Dm644 sex.6.gz "${pkgdir}/usr/share/man/man6/sex.6.gz"
+  gcc -o ${debname} ${debname}.c
+  gzip ${debname}.6
+  install -Dm755 ${debname} "${pkgdir}/usr/bin/${debname}"
+  install -Dm644 ${debname}.6.gz "${pkgdir}/usr/share/man/man6/${debname}.6.gz"
 }
 

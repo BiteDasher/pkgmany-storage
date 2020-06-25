@@ -1,5 +1,5 @@
 debpkg=1
 debname=zoom
 debver=5.1.412382.0614
-sources=("wget:${debname}_amd64.deb:https://zoom.us/client/latest/${debname}_amd64.deb")
+sources=("wget:${debname}_amd64.deb:https://${debname}.us/client/latest/${debname}_amd64.deb")
 sha256sums=('582371db5bf6ebec718ffad2467481ce3ccab1edd39aa7e823fc85635a589a2a')
