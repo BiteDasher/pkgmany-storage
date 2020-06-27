@@ -40,8 +40,10 @@ package() {
   mkdir -m 755 -p $pkgdir/opt/tlauncherinc
   mkdir -m 755 -p $pkgdir/usr/bin
   mkdir -m 755 -p $pkgdir/usr/share/pixmaps
+  mkdir -m 755 -p $pkgdir/usr/share/applications
   install -m 755 tlauncher.sh $pkgdir/usr/bin/tlauncher
   install -m 644 tl.jpg $pkgdir/usr/share/pixmaps/tl.jpg
   install -m 755 TLauncher-${debver}.jar $pkgdir/opt/tlauncherinc/tlauncher.jar
+  install -m 755 tlauncherinc.desktop $pkgdir/usr/share/applications/tlauncherinc.desktop
   mv README* $pkgdir/opt/tlauncherinc/
 }
