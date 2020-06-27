@@ -1,0 +1,47 @@
+debname=tlauncher
+debver=2.69
+debrel=1
+year=2020
+maintainer="Artemii Sudakov <finziyr@yandex.ru>"
+author="TLauncher Inc."
+debdesc="Freeware unofficial Minecraft Launcher"
+debarch="amd64"
+url='https://tlauncher.org/'
+license="custom"
+makedepends=('unzip')
+debdeps="openjdk-8-jre, libxrandr2"
+debrec="openjdk-14-jre"
+sources=("wget:tl-${debver}.zip:https://tlauncher.org/download/9125"
+	 "wget:tl.jpg:https://sun9-46.userapi.com/c857016/v857016441/1096b4/rv2en2zQT9s.jpg")
+sha256sums=('5aee06077942a4c2c1def6a532fc3232e87acdf7d806b018ba5a9ff48dd52acd'
+	    'd5a6697fe452b51652f379ca9bd2a6355fd7d5722d1c6d20ca4227eb7416aa13')
+unpack() {
+  unzip "$srcdir/tl-${debver}.zip" -d $srcdir/tlauncher
+  mv "$srcdir/tl.jpg" "$srcdir/tlauncher/tl.jpg"
+}
+addfiles() {
+cat <<EOF > $srcdir/tlauncher/tlauncherinc.desktop
+[Desktop Entry]
+Name=TLauncher
+Exec=tlauncher
+Icon=tl
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=Games;Application
+EOF
+cat <<EOF > $srcdir/tlauncher/tlauncher.sh
+#!/bin/bash
+java -jar /opt/tlauncherinc/tlauncher.jar
+EOF
+}
+package() {
+  cd $srcdir/tlauncher
+  mkdir -m 755 -p $pkgdir/opt/tlauncherinc
+  mkdir -m 755 -p $pkgdir/usr/bin
+  mkdir -m 755 -p $pkgdir/usr/share/pixmaps
+  install -m 755 tlauncher.sh $pkgdir/usr/bin/tlauncher
+  install -m 644 tl.jpg $pkgdir/usr/share/pixmaps/tl.jpg
+  install -m 755 TLauncher-${debver}.jar $pkgdir/opt/tlauncherinc/tlauncher.jar
+  mv README* $pkgdir/opt/tlauncherinc/
+}
