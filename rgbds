@@ -6,7 +6,7 @@ debdesc="Rednex GameBoy Development System"
 debarch="all"
 url="https://github.com/rednex/${debname}/"
 license="MIT"
-depends=('libpng-dev' 'bison')
+makedepends=('libpng-dev' 'bison')
 sources=("wget:${debname}-${debver}.tar.gz:https://github.com/rednex/${debname}/releases/download/v${debver}/${debname}-${debver}.tar.gz")
 sha256sums=("bd8ed69ac395b224d2b55db2cd57791bfd6b836891e7691cd8742344873d33e5")
 addfiles() {
