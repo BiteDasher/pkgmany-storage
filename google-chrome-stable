@@ -1,5 +1,6 @@
 debpkg=1
 debname=google-chrome-stable
+maintainer="Artemii Sudakov <finziyr@yandex.ru>"
 debver=83.0.4103.116
 #newver() {
 #curl -s https://dl.google.com/linux/chrome/rpm/stable/x86_64/repodata/other.xml.gz | gzip -df | grep -E ver | sed '3!d' | cut -d"\"" -f4
