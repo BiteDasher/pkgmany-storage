@@ -1,0 +1,43 @@
+# Based on https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=dosbox-x
+debname=dosbox-x
+debver=0.83.2
+debrel=1
+year=2020
+maintainer="Artemii Sudakov <finziyr@yandex.ru>"
+author="Jonathan Campbell"
+debdesc="DOSBox-X fork of the DOSBox project"
+debarch="amd64"
+url='https://github.com/joncampbell123/dosbox-x'
+license="GPL"
+makedepends=('make ' 'freeglut3')
+debdeps="libxrandr2, libpng16-16, libxkbfile1, fluidsynth, mesa-utils, ffmpeg"
+debcon="dosbox-x-git"
+source=("wget:dosbox-x.tar.gz:https://github.com/joncampbell123/dosbox-x/archive/dosbox-x-v${debver}.tar.gz"
+	"wget:dosbox-x.png:https://github.com/joncampbell123/dosbox-x/raw/master/src/dosbox.png")
+sha256sums=("87cfdf515b6c5a71afb3f5b1960d5cd323a0cce5643094713db3cf2ccb82b4bc"
+	    "e6fd580ff55b617d1969bc7fe78ae4da3b14ced8d36c00b6b4b06913a0806233")
+unpack() {
+  tar -xf "$srcdir/dosbox-x.tar.gz" -C $srcdir/
+}
+addfiles() {
+cat <<EOF > $srcdir/dosbox-x.desktop
+[Desktop Entry]
+Type=Application
+Name=DOSBox-X
+GenericName=DOS Emulator
+GenericName[es]=Emulador de DOS
+Comment=Run DOS games and apps
+Comment[es]=Ejecuta juegos y aplicaciones DOS
+Exec=dosbox-x
+Icon=dosbox
+Terminal=false
+Categories=Game;Emulator
+EOF
+}
+package() {
+  cd $srcdir/dosbox-x-dosbox-x-v${debver}
+  ./build
+  make DESTDIR="${pkgdir}" install
+  install -Dm755 $srcdir/dosbox-x.desktop $pkgdir/usr/share/applications/dosbox-x.desktop
+  install -Dm644 $srcdir/dosbox-x.png $pkgdir/usr/share/pixmaps/dosbox-x.png
+}
