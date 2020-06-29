@@ -1,0 +1,23 @@
+debname=sameboy
+debdesc='An accuracy-focused Game Boy/Game Boy Color emulator'
+maintainer="Artyom Maykin <agalq12@gmail.com>"
+debver=0.13.3
+debrel=1
+debarch="amd64"
+url='https://github.com/LIJI32/SameBoy'
+license="MIT"
+debcon="sameboy-git"
+debdeps="libsdl2-dev"
+makedepends=('make' 'git' 'libsdl2-dev')
+manydeps=('rgbds')
+sources=("wget:sameboy-0.13.3.tar.gz:https://github.com/LIJI32/SameBoy/archive/v0.13.3.tar.gz")
+sha256sums=("a2a61826998c9a791ce102e089112c9a18722465f8d2774fe57c1538ca02ca45")
+package() {
+	cd "${srcdir}/SameBoy-${debver}"
+	make sdl CONF=release DATA_DIR=/usr/share/games/sameboy/ CC=gcc
+	install -Dm755 build/bin/SDL/sameboy "${pkgdir}/usr/bin/sameboy"
+	find build/bin/SDL -type f -not -executable | while read f; do
+		install -Dm644 "$f" "${pkgdir}/usr/share/games/sameboy/${f#build/bin/SDL/}"
+	done
+	install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/sameboy-git/LICENSE"
+}
