@@ -1,4 +1,5 @@
 debpkg=1
+maintainer="Artyom makin <agalq12@gmail.com>"
 debname=zoom
 debver=5.1.418436.0628
 sources=("wget:${debname}_amd64.deb:https://${debname}.us/client/latest/${debname}_amd64.deb")

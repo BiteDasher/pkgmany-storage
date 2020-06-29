@@ -1,5 +1,6 @@
 debpkg=1
 debname=code
+maintainer="Artyom makin <agalq12@gmail.com>"
 debver=1.46.1
 debarch="amd64"
 sources=("wget:${debname}_${debver}-1592428892_amd64.deb:https://az764295.vo.msecnd.net/stable/cd9ea6488829f560dc949a8b2fb789f3cdc05f5d/${debname}_${debver}-1592428892_${debarch}.deb")
