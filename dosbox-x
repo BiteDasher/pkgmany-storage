@@ -12,7 +12,7 @@ license="GPL"
 makedepends=('make ' 'freeglut3')
 debdeps="libxrandr2, libpng16-16, libxkbfile1, fluidsynth, mesa-utils, ffmpeg"
 debcon="dosbox-x-git"
-source=("wget:dosbox-x.tar.gz:https://github.com/joncampbell123/dosbox-x/archive/dosbox-x-v${debver}.tar.gz"
+sources=("wget:dosbox-x.tar.gz:https://github.com/joncampbell123/dosbox-x/archive/dosbox-x-v${debver}.tar.gz"
 	"wget:dosbox-x.png:https://github.com/joncampbell123/dosbox-x/raw/master/src/dosbox.png")
 sha256sums=("87cfdf515b6c5a71afb3f5b1960d5cd323a0cce5643094713db3cf2ccb82b4bc"
 	    "e6fd580ff55b617d1969bc7fe78ae4da3b14ced8d36c00b6b4b06913a0806233")
