@@ -1,6 +1,7 @@
 debpkg=1
 debver="2020.03.04"
 debname="nautilus-dropbox"
+maintainer="Artemii Sudakov <finziyr@yandex.ru>"
 manydeps=('dropbox')
 sources=("wget:nautilus-dropbox.deb:https://linux.dropbox.com/packages/ubuntu/nautilus-dropbox_${debver}_all.deb")
 sha256sums=('e89eec535f742bc352633b84ff81d73695fa18be0efb2a91b5b453fcd1bbe56b')

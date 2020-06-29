@@ -1,5 +1,6 @@
 debpkg=1
 debname=dropbox
+maintainer="Artemii Sudakov <finziyr@yandex.ru>"
 debver="2020.03.04"
 sources=("wget:dropbox.deb:https://linux.dropbox.com/packages/ubuntu/dropbox_${debver}_amd64.deb")
 sha256sums=('e2ea3317e8e0e6dc9e1846f55f0bdfa74c178a0c729e7b1ac57b30bb12233c1b')
