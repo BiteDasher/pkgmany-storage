@@ -2,9 +2,11 @@ debname=sameboy
 debdesc='An accuracy-focused Game Boy/Game Boy Color emulator'
 maintainer="Artyom Maykin <agalq12@gmail.com>"
 debver=0.13.3
+author="LIJI32"
+year"2020"
 debrel=1
 debarch="amd64"
-url='https://github.com/LIJI32/SameBoy'
+url='https://github.com/${author}/SameBoy'
 license="MIT"
 debcon="sameboy-git"
 debdeps="libsdl2-dev"
