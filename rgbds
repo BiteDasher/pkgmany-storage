@@ -1,0 +1,70 @@
+debname=rgbds
+debver=0.4.0
+debrel=1
+maintainer="Artyom Maykin <agalq12@gmail.com>"
+debdesc="Rednex GameBoy Development System"
+debarch="all"
+url="https://github.com/rednex/${debname}/"
+license="MIT"
+depends=('libpng-dev' 'bison')
+sources=("wget:${debname}-${debver}.tar.gz:https://github.com/rednex/${debname}/releases/download/v${debver}/${debname}-${debver}.tar.gz")
+sha256sums=("bd8ed69ac395b224d2b55db2cd57791bfd6b836891e7691cd8742344873d33e5")
+addfiles() {
+cat <<EOF > $srcdir/${debname}-504.patch
++++ b/include/gfx/main.h
+@@ -83,7 +83,7 @@ struct Mapfile {
+ 	int size;
+ };
+ 
+-int depth, colors;
++extern int depth, colors;
+ 
+ #include "gfx/makepng.h"
+ #include "gfx/gb.h"
+diff --git a/src/gfx/gb.c b/src/gfx/gb.c
+index 49bd79d9..19748c4e 100644
+--- a/src/gfx/gb.c
++++ b/src/gfx/gb.c
+@@ -10,7 +10,7 @@
+ #include <stdio.h>
+ #include <stdlib.h>
+ 
+-#include "gfx/main.h"
++#include "gfx/gb.h"
+ 
+ void transpose_tiles(struct GBImage *gb, int width)
+ {
+diff --git a/src/gfx/main.c b/src/gfx/main.c
+index c4d87732..703f7753 100644
+--- a/src/gfx/main.c
++++ b/src/gfx/main.c
+@@ -15,6 +15,8 @@
+ #include "extern/getopt.h"
+ #include "version.h"
+ 
++int depth, colors;
++
+ /* Short options */
+ static char const *optstring = "Aa:CDd:Ffhmo:Pp:Tt:uVvx:";
+ 
+diff --git a/src/gfx/makepng.c b/src/gfx/makepng.c
+index f87b9a95..a1b89e0a 100644
+--- a/src/gfx/makepng.c
++++ b/src/gfx/makepng.c
+@@ -11,7 +11,7 @@
+ #include <stdlib.h>
+ #include <string.h>
+ 
+-#include "gfx/main.h"
++#include "gfx/makepng.h"
+ 
+ static void initialize_png(struct PNGImage *img, FILE * f);
+ static struct RawIndexedImage *indexed_png_to_raw(struct PNGImage *img);
+EOF
+}
+package() {
+    cd "${srcdir}/${debname}"
+    patch -p1 < ../${debname}-504.patch
+    make VERSION_STRING=${debver} LDFLAGS="${LDFLAGS}" CFLAGS="${CFLAGS}"
+    make DESTDIR="${pkgdir}" PREFIX=/usr mandir="/usr/share/man" install
+}
