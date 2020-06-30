@@ -67,6 +67,6 @@ EOF
 package() {
     cd "${srcdir}/${debname}"
     patch -p1 < ../${debname}-504.patch
-    make VERSION_STRING=${debver} LDFLAGS="${LDFLAGS}" CFLAGS="${CFLAGS}"
+    make -j${nproc} VERSION_STRING=${debver} LDFLAGS="${LDFLAGS}" CFLAGS="${CFLAGS}"
     make DESTDIR="${pkgdir}" PREFIX=/usr mandir="/usr/share/man" install
 }
