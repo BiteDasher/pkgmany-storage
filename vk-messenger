@@ -1,0 +1,6 @@
+debpkg=1
+debname=vk-messenger
+maintainer="Artemii Sudakov <finziyr@yandex.ru>"
+debver=5.0.1
+sources=("wget:vk.deb:https://desktop.userapi.com/debian/pool/master/v/vk/vk_${debver}-1_amd64.deb")
+sha256sums=('46ca0aeb422847b0969f2fb06a1ec52d0d17187b44267a02e3147ba2f8a51201')
