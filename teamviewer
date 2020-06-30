@@ -2,5 +2,5 @@ debpkg=1
 debname=team-viewer
 maintainer="Artemii Sudakov <finziyr@yandex.ru>"
 debver=15.7.6
-sources=("wget:team-viewer.deb:https://dl.teamviewer.com/download/linux/version_${debver%%.*}x/teamviewer_${debver}_amd64.deb"")
+sources=("wget:team-viewer.deb:https://dl.teamviewer.com/download/linux/version_${debver%%.*}x/teamviewer_${debver}_amd64.deb")
 sha256sums=('f981f46ab9733e03c07feeb5ecfeccbd2fc7ac6f64a509d948caf9cecd2f19a1')
