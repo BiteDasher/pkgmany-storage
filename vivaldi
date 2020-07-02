@@ -1,6 +1,6 @@
 debpkg=1
+debname=vivaldi
 _rev=stable
-debname=vivaldi-${_rev}
 maintainer="Artemii Sudakov <finziyr@yandex.ru>"
 debver=3.1.1929.45
 sources=("wget:vivaldi-${_rev}.deb:https://downloads.vivaldi.com/${_rev}/vivaldi-${_rev}_${debver}-1_amd64.deb")

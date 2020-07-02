@@ -1,6 +1,6 @@
 debpkg=1
+debname=opera
 _rev=developer
-debname=opera-${_rev}
 maintainer="Artemii Sudakov <finziyr@yandex.ru>"
 debver=71.0.3735.0
 sources=("wget:opera-${_rev}.deb:https://deb.opera.com/opera/pool/non-free/o/${debname}-${_rev}/${debname}-${_rev}_${debver}_amd64.deb")
