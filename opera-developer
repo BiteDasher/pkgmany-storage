@@ -3,5 +3,5 @@ debname=opera
 _rev=developer
 maintainer="Artemii Sudakov <finziyr@yandex.ru>"
 debver=71.0.3735.0
-sources=("wget:opera-${_rev}.deb:https://deb.opera.com/opera/pool/non-free/o/${debname}-${_rev}/${debname}_${debver}_amd64.deb")
+sources=("wget:opera-${_rev}.deb:https://deb.opera.com/opera/pool/non-free/o/${debname}-${_rev}/${debname}-${_rev}_${debver}_amd64.deb")
 sha256sums=('96226309f3a9793630727d044ec362c251d594e5b03d205d650c2b5a4febcb8e')
