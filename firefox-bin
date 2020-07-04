@@ -1,7 +1,7 @@
 # Based on https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=firefox-bin
 debname=firefox-bin
 _debname=firefox
-debver=77.0.1
+debver=78.0.1
 debrel=1
 debdesc="Standalone web browser from mozilla.org - official prebuilt binary"
 maintainer="Artemii Sudakov <finziyr@yandex.ru>"

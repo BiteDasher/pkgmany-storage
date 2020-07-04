@@ -2,6 +2,6 @@ debpkg=1
 debname=opera
 _rev=stable
 maintainer="Artemii Sudakov <finziyr@yandex.ru>"
-debver=69.0.3686.36
+debver=69.0.3686.49
 sources=("wget:opera-${_rev}.deb:https://get.geo.opera.com/pub/${debname}/desktop/${debver}/linux/${debname}-${_rev}_${debver}_amd64.deb")
 sha256sums=('aa7fcd532feae92fca4e347b0a19f6a9363d7bd0735d9fea0e0f95a7aa6e9029')
