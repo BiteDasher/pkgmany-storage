@@ -1,6 +1,6 @@
 debpkg=1
 maintainer="Artyom makin <agalq12@gmail.com>"
 debname=zoom
-debver=5.1.418436.0628
+debver=5.1.422789.0705
 sources=("wget:${debname}_amd64.deb:https://${debname}.us/client/latest/${debname}_amd64.deb")
 sha256sums=('582371db5bf6ebec718ffad2467481ce3ccab1edd39aa7e823fc85635a589a2a')
