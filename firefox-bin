@@ -1,7 +1,7 @@
 # Based on https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=firefox-bin
 debname=firefox-bin
 _debname=firefox
-debver=78.0.1
+debver=78.0.2
 debrel=1
 debdesc="Standalone web browser from mozilla.org - official prebuilt binary"
 maintainer="Artemii Sudakov <finziyr@yandex.ru>"
@@ -17,7 +17,7 @@ debcon="firefox"
 debsec="web"
 debpri="optional"
 sources=("wget:firefox.tar.bz2:https://ftp.mozilla.org/pub/firefox/releases/$debver/linux-x86_64/en-US/firefox-$debver.tar.bz2")
-sha256sums=('03859fd56f79cb520e30bae2433b6f61f806c8f95e7576092894eb1d644e6ff1')
+sha256sums=('6ff91ca25f69bfaf659c799bd7ff58575cfd7b6f8bf1dd77b802aac709c8239f')
 unpack() {
 tar -xf "$srcdir/firefox.tar.bz2" -C $srcdir/
 }
