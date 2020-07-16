@@ -1,7 +1,7 @@
 debpkg=1
 debname=code
 maintainer="Artyom makin <agalq12@gmail.com>"
-debver=1.46.1
+debver=1.47.1
 debarch="amd64"
-sources=("wget:${debname}_${debver}-1592428892_amd64.deb:https://az764295.vo.msecnd.net/stable/cd9ea6488829f560dc949a8b2fb789f3cdc05f5d/${debname}_${debver}-1592428892_${debarch}.deb")
-sha256sums=('8ad0dec20927d22efbffcbbd2d642e4f57cbeee4bd4deba8eae61d1c9362d8ea')
+sources=("wget:${debname}_${debver}-1594686231_${debarch}.deb:https://az764295.vo.msecnd.net/stable/485c41f9460bdb830c4da12c102daff275415b53/${debname}_${debver}-1594686231_${debarch}.deb")
+sha256sums=('7cff7e2fb424ecfc6b95da6ff1c716977008df2b4f1ccde2a7b763c23464bf8e')
