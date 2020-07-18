@@ -1,0 +1,22 @@
+debname=openspades
+debver=0.1.3
+debrel=1
+desc="A clone of Voxlap Ace of Spades 0.75"
+debarch="amd64"
+url="http://openspades.yvt.jp/"
+license="GPL3"
+maintainer="Artemii Sudakov <finziyr@yandex.ru>"
+year=2020
+author="Jagex Ltd."
+debdeps="curl, desktop-file-utils, glew-utils, hicolor-icon-theme, mesa-utils, libopenal1, opus-utils, libsdl1.2debian, libsdl-image1.2, xdg-utils"
+makedepends=('cmake' 'git' 'freeglut3-dev' 'imagemagick' 'unzip' 'wget' 'zip' 'libsdl1.2debian')
+sources=("wget:${debname}-v${debver}.tar.gz:https://github.com/yvt/openspades/archive/v${debver}.tar.gz")
+sha256sums=('ecd7aaf568f80712d981ecdd7bf9e380221dc2c16e86d2e56a0ddda87432bea3')
+package() {
+  cd "${srcdir}/${pkgname}-${pkgver}"
+  cmake -D CMAKE_INSTALL_PREFIX=/usr -D CMAKE_BUILD_TYPE=RelWithDebInfo -D OPENSPADES_RESDIR=/usr/share/openspades/Resources -D OPENSPADES_INSTALL_RESOURCES=share/openspades/Resources -D OPENSPADES_INSTALL_BINARY=bin .
+  make
+  cd "${srcdir}/${debname}-${debver}"
+  make DESTDIR="${pkgdir}" install
+  rm -rf "${pkgdir}/usr/share/menu"
+}
